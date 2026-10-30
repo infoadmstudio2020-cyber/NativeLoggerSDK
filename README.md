@@ -43,7 +43,7 @@ In your module's `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.infoadmstudio2020-cyber:NativeLoggerSDK:1.0.0'
+    implementation 'com.github.infoadmstudio2020-cyber:NativeLoggerSDK:1.0.1'
     // Underlying ecosystem contracts
     implementation 'com.github.infoadmstudio2020-cyber:NativeRuntimeContracts:v1.0.1'
 }
@@ -107,6 +107,18 @@ logger.flush();
 | `LoggerCommandHandler` | `IApiHandler` implementation for RPC command routing |
 | `PatternLogFormatter` | High-performance log pattern formatter with regex PII redaction |
 | `JsonLogFormatter` | Structured JSON log event serializer |
+
+---
+
+## GitHub Release & CI/CD Assets
+
+Automated release workflow generates and publishes:
+1. **Library AAR**: `native-logger-sdk/build/outputs/aar/native-logger-sdk-release.aar`
+2. **Demo APK**: `app/build/outputs/apk/release/app-release.apk`
+3. **Demo AAB**: `app/build/outputs/bundle/release/app-release.aab`
+
+> **Note for GitHub Actions Permissions**:
+> In repository settings under **Settings -> Actions -> General -> Workflow permissions**, ensure **"Read and write permissions"** is selected. The workflow file (`release.yml`) also explicitly specifies `permissions: contents: write` so that `softprops/action-gh-release` can create releases and upload assets without encountering `Resource not accessible by integration`.
 
 ---
 

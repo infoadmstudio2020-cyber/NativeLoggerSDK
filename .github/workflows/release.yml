@@ -5,9 +5,14 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -36,14 +41,16 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build Release AAR
+      - name: Build Release AAR, Demo APK, and Demo AAB
         run: |
-          ./gradlew clean :native-logger-sdk:assembleRelease :native-logger-sdk:publishToMavenLocal --stacktrace
+          ./gradlew clean :native-logger-sdk:assembleRelease :app:assembleRelease :app:bundleRelease :native-logger-sdk:publishToMavenLocal --stacktrace
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             native-logger-sdk/build/outputs/aar/*.aar
+            app/build/outputs/apk/release/*.apk
+            app/build/outputs/bundle/release/*.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

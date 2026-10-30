@@ -3,7 +3,7 @@
 All notable changes to NativeLoggerSDK are documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com).
 
-## [1.0.0] — 2026-10-29
+## [1.0.1] — 2026-10-29
 
 ### Added
 - Complete Layer 1 Core Infrastructure implementation for NativeRuntime ecosystem.
@@ -21,6 +21,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com).
 - Implemented `NativeLoggerSDK` lifecycle facade and `NativeLoggerSDKConfig.Builder`.
 - Implemented comprehensive automated JVM unit test suite with 100% pass rate.
 - Interactive companion demo application in `:app` module with live log viewer and controls.
+- Enhanced GitHub Release workflow (`release.yml`) with:
+  - Explicit `permissions: contents: write` to prevent `Resource not accessible by integration` error.
+  - Upgrade to `softprops/action-gh-release@v2` running on Node 20 to eliminate deprecation warnings.
+  - Automated release artifact bundling: Release AAR, Demo Release APK, and Demo Release AAB.
 - JitPack cloud build and GitHub Actions CI/CD workflows validated.
 
 ## [Unreleased]

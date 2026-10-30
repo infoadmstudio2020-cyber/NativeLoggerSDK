@@ -11,7 +11,7 @@ android {
         minSdk 21
         targetSdk 34
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.1"
         consumerProguardFiles "consumer-rules.pro"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,7 +58,7 @@ afterEvaluate {
                 from components.findByName('release') ?: components.findByName('java') ?: components.findByName('default')
                 groupId    = 'com.roni.library.logger'
                 artifactId = 'NativeLoggerSDK'
-                version    = '1.0.0'
+                version    = '1.0.1'
 
                 pom {
                     name        = 'NativeLoggerSDK'

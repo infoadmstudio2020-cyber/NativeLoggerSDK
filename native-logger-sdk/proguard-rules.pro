@@ -1,0 +1,2 @@
+-keep public class com.roni.library.logger.** { public *; }
+-keepclassmembers class com.roni.library.logger.** { public *; }
